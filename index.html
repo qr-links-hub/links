@@ -2,118 +2,205 @@
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>الدلتا لدهانات الألومنيوم | تواصل معنا</title>
 <meta name="robots" content="noindex">
-<meta name="theme-color" content="#052a5e">
+<meta name="theme-color" content="#eef1f7">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Alexandria:wght@400;600;800&display=swap" rel="stylesheet">
 <style>
   :root {
     --navy: #052a5e;
-    --navy-2: #0a3d85;
-    --red: #e60000;
-    --bg: #eef2f9;
+    --ink: #0e1b33;
+    --muted: #5f6b80;
+    --red: #e10600;
+    --bg: #eef1f7;
     --card: #ffffff;
-    --text: #12203a;
-    --muted: #5d6679;
-    --fb: #1877f2;
+    --line: #e4e8f0;
     --wa: #1fa855;
-    --line: #e3e8f2;
+    --wa-2: #178a45;
+    --fb: #1877f2;
+    --fb-2: #1262cf;
+    --font: "Alexandria", "Segoe UI", Tahoma, Arial, sans-serif;
   }
   * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
-  html, body { margin: 0; min-height: 100%; }
+  html, body { margin: 0; max-width: 100%; overflow-x: clip; }
   body {
-    font-family: "Segoe UI", "Noto Naskh Arabic", "Noto Sans Arabic", Tahoma, Arial, sans-serif;
-    background:
-      radial-gradient(900px 380px at 50% -120px, rgba(5,42,94,.14), transparent 70%),
-      var(--bg);
-    color: var(--text);
+    min-height: 100vh;
+    font-family: var(--font);
+    color: var(--ink);
+    background: var(--bg);
     display: flex;
     justify-content: center;
-    padding: 20px 16px 32px;
-    min-height: 100vh;
+    padding: 22px 16px 40px;
+    position: relative;
+    overflow-x: hidden;
   }
-  main {
-    width: 100%;
-    max-width: 440px;
-    margin: auto;
+  /* مثلثات باهتة جدًا من شكل حرف الـ Λ في اللوجو */
+  body::before, body::after {
+    content: "";
+    position: absolute;
+    pointer-events: none;
+    background: var(--navy);
+    clip-path: polygon(50% 0, 100% 100%, 0 100%);
+  }
+  body::before { width: 360px; height: 310px; top: -90px; right: -120px; opacity: .05; }
+  body::after  { width: 250px; height: 215px; top: 120px; left: -110px; opacity: .04; }
+
+  main { width: 100%; max-width: 440px; position: relative; z-index: 1; }
+
+  .sheet {
     background: var(--card);
-    border-radius: 28px;
-    overflow: hidden;
-    box-shadow: 0 14px 44px rgba(5, 42, 94, .16);
+    border-radius: 30px;
+    padding: 34px 22px 26px;
+    box-shadow: 0 1px 0 #fff inset, 0 24px 60px rgba(5, 42, 94, .14), 0 2px 6px rgba(5, 42, 94, .06);
+    animation: rise .7s cubic-bezier(.2,.7,.2,1) both;
   }
-  .top { padding: 30px 26px 22px; text-align: center; border-bottom: 1px solid var(--line); }
-  .top::after {
-    content: ""; display: block; width: 64px; height: 4px; margin: 20px auto 0;
-    border-radius: 4px; background: linear-gradient(90deg, var(--navy) 0 66%, var(--red) 66% 100%);
-  }
+  @keyframes rise { from { transform: translateY(12px); } to { transform: none; } }
+
+  .brand { text-align: center; }
   .logo { display: block; width: 100%; max-width: 330px; height: auto; margin: 0 auto; }
-  .body { padding: 24px 22px 8px; }
-  h1 { margin: 0 0 6px; font-size: 1.35rem; text-align: center; color: var(--navy); }
-  p.sub { margin: 0 0 22px; color: var(--muted); font-size: .98rem; text-align: center; }
-
-  .btn {
-    display: flex; align-items: center; justify-content: center; gap: 12px;
-    width: 100%; min-height: 62px; padding: 16px 20px; margin-bottom: 12px;
-    border-radius: 16px; color: #fff; text-decoration: none;
-    font-size: 1.12rem; font-weight: 700;
-    box-shadow: 0 4px 14px rgba(0,0,0,.12);
-    transition: transform .08s ease, filter .15s ease;
+  .mark {
+    display: flex; justify-content: center; align-items: flex-end; gap: 6px;
+    margin: 22px auto 0;
   }
-  .btn:active { transform: scale(.98); }
-  .btn:hover { filter: brightness(1.06); }
-  .btn:focus-visible { outline: 3px solid var(--text); outline-offset: 3px; }
-  .btn svg { width: 26px; height: 26px; flex: none; }
-  .wa { background: var(--wa); }
-  .fb { background: var(--fb); }
+  .mark i { display: block; height: 4px; border-radius: 2px; background: var(--navy); width: 44px; }
+  .mark i + i { width: 14px; background: var(--red); }
 
-  .divider {
-    display: flex; align-items: center; gap: 12px; margin: 22px 0 14px;
-    color: var(--muted); font-size: .92rem; font-weight: 600;
+  h1 {
+    margin: 26px 0 4px;
+    font-size: 1.6rem;
+    font-weight: 800;
+    text-align: center;
+    color: var(--navy);
+    letter-spacing: -.01em;
   }
-  .divider::before, .divider::after { content: ""; flex: 1; height: 1px; background: var(--line); }
+  .sub { margin: 0 0 24px; text-align: center; color: var(--muted); font-size: .98rem; }
 
+  /* ---------- الأزرار الرئيسية ---------- */
+  .cta {
+    display: grid;
+    grid-template-columns: 56px 1fr 22px;
+    align-items: center;
+    gap: 14px;
+    width: 100%;
+    min-height: 84px;
+    padding: 14px 18px;
+    margin-bottom: 12px;
+    border-radius: 20px;
+    color: #fff;
+    text-decoration: none;
+    position: relative;
+    overflow: hidden;
+    transition: transform .12s ease, box-shadow .2s ease;
+  }
+  .cta::after { /* لمعة خفيفة أعلى الزر */
+    content: "";
+    position: absolute; inset: 0;
+    background: linear-gradient(180deg, rgba(255,255,255,.18), rgba(255,255,255,0) 55%);
+    pointer-events: none;
+  }
+  .cta:hover { transform: translateY(-1px); }
+  .cta:active { transform: scale(.985); }
+  .cta.wa { background: linear-gradient(135deg, var(--wa), var(--wa-2)); box-shadow: 0 12px 24px rgba(31,168,85,.32); }
+  .cta.fb { background: linear-gradient(135deg, var(--fb), var(--fb-2)); box-shadow: 0 12px 24px rgba(24,119,242,.28); }
+  .cta .ico {
+    width: 56px; height: 56px; border-radius: 16px;
+    display: grid; place-items: center;
+    background: rgba(255,255,255,.2);
+    box-shadow: inset 0 0 0 1px rgba(255,255,255,.25);
+  }
+  .cta .ico svg { width: 30px; height: 30px; }
+  .cta .t { display: block; font-size: 1.28rem; font-weight: 800; line-height: 1.25; }
+  .cta .s { display: block; margin-top: 3px; font-size: .9rem; font-weight: 400; opacity: .92; }
+  .cta .chev { width: 20px; height: 20px; opacity: .85; }
+  [dir="rtl"] .cta .chev { transform: scaleX(-1); }
+
+  /* ---------- الأرقام ---------- */
+  .calls { margin-top: 26px; }
+  .calls h2 {
+    margin: 0 2px 10px;
+    font-size: .98rem;
+    font-weight: 600;
+    color: var(--muted);
+    display: flex; align-items: center; gap: 12px;
+  }
+  .calls h2::after { content: ""; flex: 1; height: 1px; background: var(--line); }
+  .list {
+    border: 1px solid var(--line);
+    border-radius: 18px;
+    overflow: hidden;
+    background: #fbfcfe;
+  }
   .call {
-    display: flex; align-items: center; justify-content: space-between; gap: 12px;
-    width: 100%; min-height: 58px; padding: 12px 18px; margin-bottom: 10px;
-    border: 2px solid var(--navy); border-radius: 14px;
-    background: #fff; color: var(--navy); text-decoration: none; font-weight: 700;
-    transition: background .15s ease, color .15s ease, transform .08s ease;
+    display: flex; align-items: center; justify-content: space-between; gap: 14px;
+    min-height: 66px;
+    padding: 10px 18px;
+    color: var(--ink);
+    text-decoration: none;
+    transition: background .15s ease;
   }
-  .call:hover, .call:active { background: var(--navy); color: #fff; }
-  .call:active { transform: scale(.98); }
-  .call:focus-visible { outline: 3px solid var(--text); outline-offset: 3px; }
-  .call svg { width: 22px; height: 22px; flex: none; }
-  .call .lbl { font-size: .95rem; }
-  .call .num { direction: ltr; unicode-bidi: isolate; font-size: 1.15rem; letter-spacing: .5px; }
+  .call + .call { border-top: 1px solid var(--line); }
+  .call:hover, .call:active { background: #f1f5fb; }
+  .call .num {
+    direction: ltr; unicode-bidi: isolate;
+    font-size: 1.3rem; font-weight: 600;
+    font-variant-numeric: tabular-nums; letter-spacing: .02em;
+    color: var(--navy);
+  }
+  .call .ring {
+    width: 42px; height: 42px; flex: none; border-radius: 50%;
+    display: grid; place-items: center;
+    color: var(--navy);
+    background: #e8eefa;
+  }
+  .call:hover .ring, .call:active .ring { background: var(--navy); color: #fff; }
+  .call .ring svg { width: 19px; height: 19px; }
 
-  footer { padding: 14px 22px 24px; color: var(--muted); font-size: .82rem; text-align: center; }
+  a:focus-visible { outline: 3px solid var(--navy); outline-offset: 3px; }
+  .cta:focus-visible { outline-offset: 2px; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .sheet { animation: none; }
+    .cta, .call { transition: none; }
+  }
+  @media (max-width: 340px) {
+    .sheet { padding: 26px 14px 20px; }
+    .cta { grid-template-columns: 46px 1fr 18px; gap: 10px; padding: 12px; }
+    .cta .ico { width: 46px; height: 46px; }
+    .call .num { font-size: 1.15rem; }
+  }
 </style>
 </head>
 <body>
 <main>
-  <div class="top">
-    <img class="logo" src="logo.png" alt="الدلتا لدهانات الألومنيوم - Delta for Aluminum Paints" width="900" height="173">
-  </div>
+  <div class="sheet">
+    <div class="brand">
+      <img class="logo" src="logo.png" alt="الدلتا لدهانات الألومنيوم - Delta for Aluminum Paints" width="900" height="156">
+      <div class="mark" aria-hidden="true"><i></i><i></i></div>
+    </div>
 
-  <div class="body">
     <h1>تواصل معنا</h1>
     <p class="sub">اختر الطريقة المناسبة لك</p>
 
-    <a class="btn wa" id="wa" href="#" rel="noopener">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20.5l1.5-5.1A8 8 0 1 1 21 12z"/></svg>
-      <span>راسلنا على واتساب</span>
+    <a class="cta wa" id="wa" href="#" rel="noopener">
+      <span class="ico"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.4.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.1.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3z"/></svg></span>
+      <span><span class="t">واتساب</span><span class="s">راسلنا مباشرة</span></span>
+      <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg>
     </a>
 
-    <a class="btn fb" id="fb" href="#" rel="noopener">
-      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.5 21v-7.5h2.6l.4-3h-3V8.7c0-.9.3-1.5 1.5-1.5h1.6V4.5c-.3 0-1.2-.1-2.3-.1-2.3 0-3.8 1.4-3.8 3.9v2.2H7.9v3h2.6V21h3z"/></svg>
-      <span>تابع صفحتنا على فيسبوك</span>
+    <a class="cta fb" id="fb" href="#" rel="noopener">
+      <span class="ico"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.5 21v-7.5h2.6l.4-3h-3V8.7c0-.9.3-1.5 1.5-1.5h1.6V4.5c-.3 0-1.2-.1-2.3-.1-2.3 0-3.8 1.4-3.8 3.9v2.2H7.9v3h2.6V21h3z"/></svg></span>
+      <span><span class="t">فيسبوك</span><span class="s">صفحتنا الرسمية</span></span>
+      <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg>
     </a>
 
-    <div class="divider">أو اتصل بنا مباشرة</div>
-    <div id="phones"></div>
+    <section class="calls">
+      <h2>أو اتصل بنا مباشرة</h2>
+      <div class="list" id="phones"></div>
+    </section>
   </div>
-
-  <footer>اضغط على الزر الذي تريده للفتح مباشرة</footer>
 </main>
 
 <script>
@@ -127,15 +214,16 @@
   document.getElementById("fb").href = CONFIG.facebook;
   document.getElementById("wa").href = CONFIG.whatsapp;
 
-  var icon = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg>';
+  var ring = '<span class="ring"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.6 10.8a15.2 15.2 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.2 11.4 11.4 0 0 0 3.6.6 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.2.2 2.5.6 3.6a1 1 0 0 1-.3 1z"/></svg></span>';
   var box = document.getElementById("phones");
   CONFIG.phones.forEach(function (p) {
-    var intl = "+20" + p.replace(/^0/, "");
+    var digits = p.replace(/\D/g, "");
     var a = document.createElement("a");
     a.className = "call";
-    a.href = "tel:" + intl;
-    a.innerHTML = icon + '<span class="lbl">اتصال</span><span class="num"></span>';
-    a.querySelector(".num").textContent = p;
+    a.href = "tel:+20" + digits.replace(/^0/, "");
+    a.setAttribute("aria-label", "اتصال " + digits);
+    a.innerHTML = '<span class="num"></span>' + ring;
+    a.querySelector(".num").textContent = digits.replace(/^(\d{4})(\d{3})(\d+)$/, "$1 $2 $3");
     box.appendChild(a);
   });
 </script>
