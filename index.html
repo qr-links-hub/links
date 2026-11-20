@@ -166,6 +166,19 @@
   .save svg { width: 22px; height: 22px; }
   .save:hover, .save:active { background: var(--navy); color: #fff; }
 
+
+  /* ---------- شكل زرار واتساب/فيسبوك: مسطح بحافة سفلية ---------- */
+  .cta { border-radius: 18px; min-height: 88px; box-shadow: none; border-bottom: 5px solid; transition: border-bottom-width .1s ease, margin .1s ease; }
+  .cta::after { display: none; }
+  .cta.wa { background: var(--wa); border-color: #12753a; box-shadow: none; }
+  .cta.fb { background: var(--fb); border-color: #0e4fb0; box-shadow: none; }
+  .cta:hover { transform: none; }
+  .cta:active { transform: none; border-bottom-width: 1px; margin-top: 4px; margin-bottom: 8px; }
+  .cta .ico { width: 58px; height: 58px; border-radius: 50%; background: #fff; box-shadow: none; }
+  .cta.wa .ico { color: var(--wa-2); }
+  .cta.fb .ico { color: var(--fb); }
+  .cta .ico svg { width: 32px; height: 32px; }
+
   a:focus-visible, .save:focus-visible { outline: 3px solid var(--red); outline-offset: 3px; }
   .cta:focus-visible { outline-offset: -4px; outline-color: #fff; }
 
